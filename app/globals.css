@@ -1,14 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 html,
 body {
-  background-color: #000000;
-  color: white;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+.font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+}
 
 html {
   scroll-behavior: smooth;
 }
+
 main {
   scroll-snap-type: y mandatory;
 }
@@ -16,6 +23,7 @@ main {
 section {
   scroll-snap-align: start;
 }
+
 @media (max-width: 768px) {
   * {
     animation-duration: 0.5s !important;
@@ -23,28 +31,54 @@ section {
   }
 }
 
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light Mode */
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --glass: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --zinc-bg: #e2e8f0;
+}
+
+.dark {
+  /* Dark Mode */
+  --background: #050505;
+  --foreground: #ffffff;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --zinc-bg: #27272a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+  --color-zinc-bg: var(--zinc-bg);
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #71717a;
 }

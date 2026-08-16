@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
+import Tilt from "react-parallax-tilt"
 
 function Counter({ to }) {
   const [count, setCount] = useState(0)
@@ -36,7 +37,7 @@ export default function About() {
     <section
       ref={ref}
       id="about"
-      className="relative min-h-screen bg-black text-white px-6 py-24 flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen bg-background text-foreground px-6 py-24 flex items-center justify-center overflow-hidden transition-colors duration-300"
     >
 
       {/* Floating Icons */}
@@ -64,14 +65,17 @@ export default function About() {
           viewport={{ once: true }}
           className="flex justify-center"
         >
-          <div className="relative">
-            <div className="absolute inset-0 rounded-full blur-2xl bg-purple-600 opacity-40"></div>
-            <img
-              src="/profile.png"
-              alt="Sweety"
-              className="relative w-64 h-64 object-cover rounded-full border-4 border-purple-500"
-            />
-          </div>
+          <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05} transitionSpeed={2500}>
+            <div className="relative">
+              <div className="absolute inset-0 rounded-full blur-[60px] bg-gradient-to-r from-indigo-500 to-purple-600 opacity-60"></div>
+              <img
+                src="/profile.png"
+                alt="Sweety"
+                className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-glass-border shadow-[0_0_40px_rgba(168,85,247,0.4)]"
+                onError={(e) => { e.target.style.display='none' }}
+              />
+            </div>
+          </Tilt>
         </motion.div>
 
         {/* RIGHT — CONTENT */}
@@ -82,47 +86,45 @@ export default function About() {
           viewport={{ once: true }}
         >
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            About <span className="text-purple-500">Me</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-heading">
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Me</span>
           </h2>
 
-          <p className="text-gray-300 leading-relaxed text-lg mb-6">
-            I’m Sweety, a Computer Science Engineering student focused on building
-            modern, real-world web applications. I enjoy transforming ideas into
-            clean, scalable, and user-friendly products.
+          <p className="text-slate-700 dark:text-gray-300 leading-relaxed text-lg mb-6">
+            I’m Sweety, a passionate Software Engineer and AI Innovator. I specialize in building 
+            <span className="text-purple-600 dark:text-purple-400 font-semibold"> Multi-Agent Systems</span> and 
+            <span className="text-pink-600 dark:text-pink-400 font-semibold"> Generative AI</span> solutions that orchestrate complex workflows and solve real-world problems.
           </p>
 
-          <p className="text-gray-400 leading-relaxed mb-10">
-            Currently sharpening my skills in Full Stack Development and Data
-            Structures & Algorithms, with a strong interest in solving real
-            problems through technology.
+          <p className="text-slate-500 dark:text-gray-400 leading-relaxed mb-10">
+            Beyond traditional full-stack development, my journey is driven by participating in competitive hackathons and engineering next-generation AI healthcare assistants and business orchestrators.
           </p>
 
           {/* STATS */}
           <div className="grid grid-cols-2 gap-6">
 
-            <div className="bg-black-900 border border-white/10 rounded-xl p-6 text-center hover:border-purple-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition">
-              <h3 className="text-3xl font-bold text-purple-400">
-                <Counter to={1} />+
+            <div className="bg-glass backdrop-blur-md border border-glass-border rounded-xl p-6 text-center hover:border-purple-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition duration-300">
+              <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 dark:from-purple-400 dark:to-pink-500">
+                <Counter to={3} />+
               </h3>
-              <p className="text-gray-400 mt-2">Years Learning</p>
+              <p className="text-slate-600 dark:text-gray-400 mt-2 font-medium">Hackathon Wins</p>
             </div>
 
-            <div className="bg-black-900 border border-white/10 rounded-xl p-6 text-center hover:border-purple-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition">
-              <h3 className="text-3xl font-bold text-purple-400">
+            <div className="bg-glass backdrop-blur-md border border-glass-border rounded-xl p-6 text-center hover:border-indigo-500 hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] transition duration-300">
+              <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-cyan-600 dark:from-indigo-400 dark:to-cyan-500">
                 <Counter to={5} />+
               </h3>
-              <p className="text-gray-400 mt-2">Projects Built</p>
+              <p className="text-slate-600 dark:text-gray-400 mt-2 font-medium">Projects Built</p>
             </div>
 
-            <div className="bg-black-900 border border-white/10 rounded-xl p-6 text-center hover:border-purple-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition">
-              <h3 className="text-3xl font-bold text-purple-400">DSA</h3>
-              <p className="text-gray-400 mt-2">Daily Practice</p>
+            <div className="bg-glass backdrop-blur-md border border-glass-border rounded-xl p-6 text-center hover:border-emerald-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] transition duration-300">
+              <h3 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 font-heading">AI Agents</h3>
+              <p className="text-slate-600 dark:text-gray-400 mt-2 font-medium">Core Expertise</p>
             </div>
 
-            <div className="bg-black-900 border border-white/10 rounded-xl p-6 text-center hover:border-purple-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition">
-              <h3 className="text-3xl font-bold text-purple-400">MERN</h3>
-              <p className="text-gray-400 mt-2">Core Stack</p>
+            <div className="bg-glass backdrop-blur-md border border-glass-border rounded-xl p-6 text-center hover:border-orange-500 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] transition duration-300">
+              <h3 className="text-2xl font-bold text-orange-500 dark:text-orange-400 font-heading">Gen AI</h3>
+              <p className="text-slate-600 dark:text-gray-400 mt-2 font-medium">Focus Area</p>
             </div>
 
           </div>

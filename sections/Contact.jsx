@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen bg-black text-white flex flex-col justify-center items-center px-6"
+      className="min-h-screen bg-background text-foreground flex flex-col justify-center items-center px-6 transition-colors duration-300"
     >
 
       {/* Heading */}
@@ -24,7 +24,7 @@ export default function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
         viewport={{ once: true }}
-        className="text-gray-400 text-center mb-10 max-w-xl"
+        className="text-slate-500 dark:text-gray-400 text-center mb-10 max-w-xl"
       >
         Feel free to reach out for internships, collaborations or project discussions.
       </motion.p>
@@ -51,7 +51,7 @@ export default function Contact() {
           href="https://github.com/Sweety3106"
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-white py-3 rounded-lg hover:bg-white hover:text-black transition text-center font-medium"
+          className="border border-foreground py-3 rounded-lg hover:bg-foreground hover:text-background transition text-center font-medium"
         >
           GitHub
         </a>
@@ -61,7 +61,7 @@ export default function Contact() {
           href="https://linkedin.com/in/sweety-527189382/"
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-white py-3 rounded-lg hover:bg-white hover:text-black transition text-center font-medium"
+          className="border border-foreground py-3 rounded-lg hover:bg-foreground hover:text-background transition text-center font-medium"
         >
           LinkedIn
         </a>

@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
 import Tilt from "react-parallax-tilt"
+import { portfolioData } from "../data/portfolio"
 
 function Counter({ to }) {
   const [count, setCount] = useState(0)
@@ -69,8 +70,8 @@ export default function About() {
             <div className="relative">
               <div className="absolute inset-0 rounded-full blur-[60px] bg-gradient-to-r from-indigo-500 to-purple-600 opacity-60"></div>
               <img
-                src="/profile.png"
-                alt="Sweety"
+                src={portfolioData.about.image}
+                alt={portfolioData.name}
                 className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-glass-border shadow-[0_0_40px_rgba(168,85,247,0.4)]"
                 onError={(e) => { e.target.style.display='none' }}
               />
@@ -91,13 +92,11 @@ export default function About() {
           </h2>
 
           <p className="text-slate-700 dark:text-gray-300 leading-relaxed text-lg mb-6">
-            I’m Sweety, a passionate Software Engineer and AI Innovator. I specialize in building 
-            <span className="text-purple-600 dark:text-purple-400 font-semibold"> Multi-Agent Systems</span> and 
-            <span className="text-pink-600 dark:text-pink-400 font-semibold"> Generative AI</span> solutions that orchestrate complex workflows and solve real-world problems.
+            {portfolioData.about.description1}
           </p>
 
           <p className="text-slate-500 dark:text-gray-400 leading-relaxed mb-10">
-            Beyond traditional full-stack development, my journey is driven by participating in competitive hackathons and engineering next-generation AI healthcare assistants and business orchestrators.
+            {portfolioData.about.description2}
           </p>
 
           {/* STATS */}
@@ -105,26 +104,26 @@ export default function About() {
 
             <div className="bg-glass backdrop-blur-md border border-glass-border rounded-xl p-6 text-center hover:border-purple-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition duration-300">
               <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 dark:from-purple-400 dark:to-pink-500">
-                <Counter to={3} />+
+                <Counter to={portfolioData.about.stats[0].value} />{portfolioData.about.stats[0].plus ? '+' : ''}
               </h3>
-              <p className="text-slate-600 dark:text-gray-400 mt-2 font-medium">Hackathon Wins</p>
+              <p className="text-slate-600 dark:text-gray-400 mt-2 font-medium">{portfolioData.about.stats[0].label}</p>
             </div>
 
             <div className="bg-glass backdrop-blur-md border border-glass-border rounded-xl p-6 text-center hover:border-indigo-500 hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] transition duration-300">
               <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-cyan-600 dark:from-indigo-400 dark:to-cyan-500">
-                <Counter to={5} />+
+                <Counter to={portfolioData.about.stats[1].value} />{portfolioData.about.stats[1].plus ? '+' : ''}
               </h3>
-              <p className="text-slate-600 dark:text-gray-400 mt-2 font-medium">Projects Built</p>
+              <p className="text-slate-600 dark:text-gray-400 mt-2 font-medium">{portfolioData.about.stats[1].label}</p>
             </div>
 
             <div className="bg-glass backdrop-blur-md border border-glass-border rounded-xl p-6 text-center hover:border-emerald-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] transition duration-300">
-              <h3 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 font-heading">AI Agents</h3>
-              <p className="text-slate-600 dark:text-gray-400 mt-2 font-medium">Core Expertise</p>
+              <h3 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 font-heading">{portfolioData.about.stats[2].value}</h3>
+              <p className="text-slate-600 dark:text-gray-400 mt-2 font-medium">{portfolioData.about.stats[2].label}</p>
             </div>
 
             <div className="bg-glass backdrop-blur-md border border-glass-border rounded-xl p-6 text-center hover:border-orange-500 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] transition duration-300">
-              <h3 className="text-2xl font-bold text-orange-500 dark:text-orange-400 font-heading">Gen AI</h3>
-              <p className="text-slate-600 dark:text-gray-400 mt-2 font-medium">Focus Area</p>
+              <h3 className="text-2xl font-bold text-orange-500 dark:text-orange-400 font-heading">{portfolioData.about.stats[3].value}</h3>
+              <p className="text-slate-600 dark:text-gray-400 mt-2 font-medium">{portfolioData.about.stats[3].label}</p>
             </div>
 
           </div>

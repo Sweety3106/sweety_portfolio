@@ -2,42 +2,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Tilt from "react-parallax-tilt"
-
-const projects = [
-  {
-    title: "FounderOS AI | Multi-Agent Business Orchestrator",
-    description: "Built a multi-agent AI system enabling specialized AI agents to collaborate, delegate tasks, and execute complex business workflows. Designed agent-to-agent communication, workflow orchestration, and task delegation pipelines for automated business processes.",
-    tech: ["AI Agents", "Next.js", "Node.js", "Workflow Orchestration"],
-    image: "/founder os.jpg",
-    github: "https://github.com/Sweety3106/orchestratorbuildathon",
-    live: "https://orchestratorbuildathon.vercel.app/",
-    gradient: "from-indigo-500/20 to-cyan-500/20",
-    hoverBorder: "hover:border-indigo-500/50",
-    pillColor: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20"
-  },
-  {
-    title: "HostelFlow (Hostel Management System)",
-    description: "Developed a full-stack hostel management system with issue reporting, real-time tracking, and role-based access for students and admins. Implemented live chat, notifications, and an admin dashboard for assigning tasks efficiently.",
-    tech: ["Next.js", "Node.js", "Express", "PostgreSQL", "WebSockets"],
-    image: "/hostel flow.png",
-    github: "https://github.com/Sweety3106/Hostel__issue_tracking_system",
-    live: "https://hostel-issue-tracking-system-fg3tbxp83.vercel.app/",
-    gradient: "from-pink-500/20 to-rose-500/20",
-    hoverBorder: "hover:border-pink-500/50",
-    pillColor: "bg-pink-500/10 text-pink-400 border-pink-500/20"
-  },
-  {
-    title: "NirogAI (AI Healthcare Assistant)",
-    description: "Developed an AI-powered healthcare assistant for symptom analysis, triage classification, and preliminary diagnosis support. Features include AI-generated clinical reports (SOAP notes), follow-up questioning, and a structured doctor portal.",
-    tech: ["Generative AI", "Python", "React", "Next.js", "APIs"],
-    image: "/nirog ai.jpg",
-    github: "https://github.com/Sweety3106/Nirog-AI",
-    live: "https://gray-meadow-085af1100.2.azurestaticapps.net/",
-    gradient: "from-emerald-500/20 to-teal-500/20",
-    hoverBorder: "hover:border-emerald-500/50",
-    pillColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
-  },
-]
+import { portfolioData } from "../data/portfolio"
 
 export default function Projects() {
   const [active, setActive] = useState(null)
@@ -60,7 +25,7 @@ export default function Projects() {
         </motion.h2>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
-          {projects.map((project, index) => (
+          {portfolioData.projects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}

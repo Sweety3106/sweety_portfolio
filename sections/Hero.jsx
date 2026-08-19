@@ -1,6 +1,7 @@
 "use client"
 import { Typewriter } from "react-simple-typewriter"
 import { motion } from "framer-motion"
+import { portfolioData } from "../data/portfolio"
 
 export default function Hero() {
   return (
@@ -24,7 +25,7 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-5xl md:text-7xl font-bold font-heading text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500 dark:from-white dark:via-gray-200 dark:to-gray-400"
           >
-            Sweety
+            {portfolioData.name}
           </motion.h1>
 
           <motion.p
@@ -34,13 +35,7 @@ export default function Hero() {
             className="mt-6 text-xl md:text-2xl text-slate-600 dark:text-gray-400 font-mono h-[30px]"
           >
             <Typewriter
-              words={[
-                "Full Stack Developer",
-                "AI Engineer",
-                "Frontend Engineer",
-                "Multi-Agent Systems",
-                "Problem Solver"
-              ]}
+              words={portfolioData.hero.roles}
               loop={true}
               cursor
               cursorStyle="|"
@@ -56,7 +51,7 @@ export default function Hero() {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="mt-8 text-slate-600 dark:text-gray-400 max-w-md leading-relaxed"
           >
-            I build scalable, intelligent web applications and multi-agent AI systems that solve real-world problems. Let's create something extraordinary together.
+            {portfolioData.hero.description}
           </motion.p>
 
           <motion.div
@@ -76,7 +71,7 @@ export default function Hero() {
             </button>
 
             <a 
-              href="/sweety resume.pdf" 
+              href={portfolioData.hero.resumeUrl} 
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 bg-glass border border-glass-border backdrop-blur-md rounded-full hover:bg-glass/80 transition-colors duration-300 inline-block"
@@ -124,8 +119,8 @@ export default function Hero() {
           <div className="w-[280px] h-[280px] md:w-[320px] md:h-[320px] rounded-full bg-zinc-bg border border-glass-border p-2 overflow-hidden shadow-2xl relative z-10">
              {/* Please upload your photo to public/profile.png */}
              <div className="w-full h-full rounded-full bg-zinc-bg flex items-center justify-center text-slate-500 overflow-hidden relative group">
-                <img src="/profile.png" alt="Sweety" className="w-full h-full object-cover z-10" onError={(e) => { e.target.style.display='none' }} />
-                <span className="absolute text-sm font-mono z-0 group-hover:opacity-0 transition-opacity">Upload /profile.png</span>
+                <img src={portfolioData.hero.image} alt={portfolioData.name} className="w-full h-full object-cover z-10" onError={(e) => { e.target.style.display='none' }} />
+                <span className="absolute text-sm font-mono z-0 group-hover:opacity-0 transition-opacity">Upload {portfolioData.hero.image}</span>
              </div>
           </div>
         </motion.div>

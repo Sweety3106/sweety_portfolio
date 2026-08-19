@@ -1,57 +1,7 @@
 "use client"
 import { motion } from "framer-motion"
 import Tilt from "react-parallax-tilt"
-
-const achievements = [
-  {
-    title: "Intel Certification",
-    description: "Successfully completed the certification program by Intel, demonstrating proficiency in modern computing and AI technologies.",
-    icon: "🚀",
-    image: "/intel.png",
-    gradient: "from-blue-600/20 to-indigo-500/20",
-    border: "group-hover:border-blue-500/50"
-  },
-  {
-    title: "NEC Certification",
-    description: "Achieved certification from NEC, highlighting skills in advanced IT solutions and networking infrastructure.",
-    icon: "🌐",
-    image: "/nec.png",
-    gradient: "from-indigo-500/20 to-violet-500/20",
-    border: "group-hover:border-indigo-500/50"
-  },
-  {
-    title: "Microsoft Certified: Azure Fundamentals (AZ-900)",
-    description: "Successfully earned the AZ-900 certification, demonstrating foundational knowledge of cloud services and how those services are provided with Microsoft Azure.",
-    icon: "☁️",
-    image: "/az900.jpg",
-    gradient: "from-blue-600/20 to-cyan-500/20",
-    border: "group-hover:border-blue-500/50"
-  },
-  {
-    title: "Runner-Up — Phantasia Hackathon",
-    description: "Secured 2nd position among multiple competing teams by building an innovative tech solution under time constraints.",
-    icon: "🥈",
-    image: "/phantasia.jpg",
-    gradient: "from-blue-500/20 to-purple-500/20",
-    border: "group-hover:border-blue-500/50"
-  },
-  {
-    title: "Top 20 — Solo Hackathon (Google Developers Group)",
-    description: "Ranked among top 20 participants in an individual hackathon organized by GDG, demonstrating strong problem-solving and development skills.",
-    icon: "⭐",
-    image: "/gen ai.jpg",
-    gradient: "from-yellow-500/20 to-orange-500/20",
-    border: "group-hover:border-yellow-500/50"
-  },
-  {
-    title: "Top 9 — Build With TRAE Hackathon, New Delhi | Solo",
-    description: "Selected among the Top 9 projects while competing against around 90 developers and AI builders; independently built FounderOS AI, a multi-agent business orchestration system.",
-    icon: "🏆",
-    image: "/build with trae.jpg",
-    gradient: "from-purple-500/20 to-pink-500/20",
-    border: "group-hover:border-purple-500/50"
-  },
-]
+import { portfolioData } from "../data/portfolio"
 
 export default function Achievements() {
   return (
@@ -71,7 +21,7 @@ export default function Achievements() {
         </motion.h2>
 
         <div className="max-w-6xl mx-auto space-y-12 relative z-10">
-          {achievements.map((achievement, index) => (
+          {portfolioData.achievements.map((achievement, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}

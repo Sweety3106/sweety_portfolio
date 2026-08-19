@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion"
 
+import { portfolioData } from "../data/portfolio"
+
 export default function IntroLoader({ onFinish }) {
   return (
     <motion.div
@@ -17,7 +19,7 @@ export default function IntroLoader({ onFinish }) {
         transition={{ duration: 0.8 }}
         className="text-4xl font-bold text-purple-500"
       >
-        Sweety
+        {portfolioData.name}
       </motion.h1>
     </motion.div>
   )

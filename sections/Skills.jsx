@@ -1,49 +1,7 @@
 "use client"
 import { motion } from "framer-motion"
 import Tilt from "react-parallax-tilt"
-
-const skillCategories = [
-  {
-    title: "Languages",
-    skills: ["JavaScript", "TypeScript", "Python", "Java", "C", "SQL"],
-    gradient: "from-blue-500/10 to-cyan-500/10",
-    border: "border-blue-500/20",
-    hoverBorder: "hover:border-blue-500/50",
-    pill: "bg-blue-500/10 text-blue-400 border-blue-500/20"
-  },
-  {
-    title: "AI & Automation",
-    skills: ["Generative AI", "AI Agents", "Multi-Agent Systems", "Workflow Automation"],
-    gradient: "from-purple-500/10 to-pink-500/10",
-    border: "border-purple-500/20",
-    hoverBorder: "hover:border-purple-500/50",
-    pill: "bg-purple-500/10 text-purple-400 border-purple-500/20"
-  },
-  {
-    title: "Frontend",
-    skills: ["React.js", "Next.js", "HTML", "CSS", "Tailwind CSS"],
-    gradient: "from-emerald-500/10 to-teal-500/10",
-    border: "border-emerald-500/20",
-    hoverBorder: "hover:border-emerald-500/50",
-    pill: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
-  },
-  {
-    title: "Backend & Databases",
-    skills: ["Node.js", "Express.js", "REST APIs", "PostgreSQL", "MongoDB"],
-    gradient: "from-orange-500/10 to-red-500/10",
-    border: "border-orange-500/20",
-    hoverBorder: "hover:border-orange-500/50",
-    pill: "bg-orange-500/10 text-orange-400 border-orange-500/20"
-  },
-  {
-    title: "Tools & Core Concepts",
-    skills: ["Git", "GitHub", "VS Code", "Vercel", "Data Structures", "OOP", "DBMS"],
-    gradient: "from-zinc-500/10 to-zinc-400/10",
-    border: "border-zinc-500/20",
-    hoverBorder: "hover:border-zinc-500/50",
-    pill: "bg-zinc-bg text-slate-700 dark:text-zinc-300 border-glass-border"
-  },
-]
+import { portfolioData } from "../data/portfolio"
 
 export default function Skills() {
   return (
@@ -64,7 +22,7 @@ export default function Skills() {
 
       {/* Categories Grid */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 z-10 relative">
-        {skillCategories.map((category, index) => (
+        {portfolioData.skills.map((category, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 30 }}
@@ -80,7 +38,7 @@ export default function Skills() {
                 <h3 className="text-2xl font-bold mb-6 font-heading relative z-10">{category.title}</h3>
                 
                 <div className="flex flex-wrap gap-2 relative z-10">
-                  {category.skills.map((skill, sIndex) => (
+                  {category.items.map((skill, sIndex) => (
                     <span 
                       key={sIndex} 
                       className={`px-3 py-1.5 text-sm font-medium rounded-lg border ${category.pill}`}

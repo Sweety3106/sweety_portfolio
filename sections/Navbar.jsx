@@ -5,6 +5,8 @@ import { motion } from "framer-motion"
 import { useTheme } from "next-themes"
 import { Sun, Moon } from "lucide-react"
 
+import { portfolioData } from "../data/portfolio"
+
 export default function Navbar() {
 
   const [open, setOpen] = useState(false)
@@ -32,7 +34,7 @@ export default function Navbar() {
 
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
-        <h1 className="text-xl font-bold">Sweety</h1>
+        <h1 className="text-xl font-bold">{portfolioData.name}</h1>
 
         {/* Desktop Menu & Actions */}
         <div className="hidden md:flex items-center gap-8">

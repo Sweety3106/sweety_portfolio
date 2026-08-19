@@ -1,14 +1,16 @@
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 
+import { portfolioData } from "../data/portfolio";
+
 export const metadata = {
-  title: "Sweety | Full Stack Developer",
-  description: "Sweety's personal portfolio showcasing projects, skills and development journey.",
+  title: portfolioData.seo.title,
+  description: portfolioData.seo.description,
   openGraph: {
-    title: "Sweety Portfolio",
-    description: "Full Stack Developer Portfolio",
-    url: "https://your-vercel-url.vercel.app",
-    siteName: "Sweety Portfolio",
+    title: portfolioData.seo.title,
+    description: portfolioData.seo.description,
+    url: portfolioData.seo.url,
+    siteName: `${portfolioData.name} Portfolio`,
     type: "website",
   },
 };

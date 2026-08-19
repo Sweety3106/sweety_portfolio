@@ -1,41 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-
-const timelineData = [
-  {
-    title: "B.Tech CSE (Hons) | Specialization in AI & Analytics",
-    subtitle: "GLA University, Mathura",
-    date: "Aug 2025 - Present",
-    logo: "/gla.png",
-    color: "text-indigo-400",
-    shadow: "hover:shadow-[0_0_30px_rgba(99,102,241,0.3)]",
-    border: "hover:border-indigo-500/50",
-    dot: "bg-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.9)]"
-  },
-  {
-    title: "Class XII (82.8%)",
-    subtitle: "Hardayal Public School",
-    date: "2023 - 2024",
-    logo: "/hps.jpg", 
-    icon: "🏫",
-    color: "text-pink-400",
-    shadow: "hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]",
-    border: "hover:border-pink-500/50",
-    dot: "bg-pink-500 shadow-[0_0_20px_rgba(236,72,153,0.9)]"
-  },
-  {
-    title: "Class X (97.8%)",
-    subtitle: "Hardayal Public School",
-    date: "2021 - 2022",
-    logo: "/hps.jpg",
-    icon: "🎓",
-    color: "text-emerald-400",
-    shadow: "hover:shadow-[0_0_30px_rgba(16,185,129,0.3)]",
-    border: "hover:border-emerald-500/50",
-    dot: "bg-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.9)]"
-  },
-]
+import { portfolioData } from "../data/portfolio"
 
 export default function Timeline() {
   return (
@@ -61,7 +27,7 @@ export default function Timeline() {
         <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-[2px] bg-gradient-to-b from-indigo-500/50 via-pink-500/50 to-transparent"></div>
 
         {/* Timeline Items */}
-        {timelineData.map((item, index) => (
+        {portfolioData.timeline.map((item, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 50, x: index % 2 === 0 ? -20 : 20 }}

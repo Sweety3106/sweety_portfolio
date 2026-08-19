@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { portfolioData } from "../data/portfolio"
 
 export default function Contact() {
   return (
@@ -26,7 +27,7 @@ export default function Contact() {
         viewport={{ once: true }}
         className="text-slate-500 dark:text-gray-400 text-center mb-10 max-w-xl"
       >
-        Feel free to reach out for internships, collaborations or project discussions.
+        {portfolioData.contact.message}
       </motion.p>
 
       {/* Buttons */}
@@ -40,7 +41,7 @@ export default function Contact() {
 
         {/* EMAIL */}
         <a
-          href="mailto:sweetyadav3369@gmail.com"
+          href={`mailto:${portfolioData.contact.email}`}
           className="bg-purple-600 py-3 rounded-lg hover:bg-purple-700 transition text-center font-medium"
         >
           Email Me
@@ -48,7 +49,7 @@ export default function Contact() {
 
         {/* GITHUB */}
         <a
-          href="https://github.com/Sweety3106"
+          href={portfolioData.contact.github}
           target="_blank"
           rel="noopener noreferrer"
           className="border border-foreground py-3 rounded-lg hover:bg-foreground hover:text-background transition text-center font-medium"
@@ -58,7 +59,7 @@ export default function Contact() {
 
         {/* LINKEDIN */}
         <a
-          href="https://linkedin.com/in/sweety-527189382/"
+          href={portfolioData.contact.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           className="border border-foreground py-3 rounded-lg hover:bg-foreground hover:text-background transition text-center font-medium"
